@@ -1,0 +1,57 @@
+.btn{
+    padding: 10px;
+    border: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: coral;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.input{
+    background-color: coral;
+    text-align: center;
+    border-radius: 5px;
+    border-color: coral;
+    border: 0px;
+    padding: 5px;
+    border-collapse: 0px;
+
+}
+.input:hover{
+    background-color: coral;
+    text-align: center;
+    border-radius: 5px;
+    border-color: coral;
+    border: 0px;
+    padding: 5px;
+    border-collapse: 0px;
+
+}
+
+.form{
+    background-color: crimson;
+    padding: 10px;
+    
+}
+
+.label{
+
+    padding:5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100px;
+
+}
+
+.row{
+
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+    padding: 5px;
+    width: 50%;
+}
