@@ -7,12 +7,6 @@ test("App renders main header", async ()=>{
     expect(textElement).toBeInTheDocument();
 });
 
-test("App renders main header as header", async ()=>{
-    const htitle = "Bitcoin examiner";
-    render(<App/>);
-    const textElement =screen.getByRole("heading", {name:htitle});
-    expect(textElement).toBeInTheDocument();
-});
 
 test("App renders secondary header", async ()=>{
     const htitle = "Specify the time frame for investigation";
@@ -21,11 +15,10 @@ test("App renders secondary header", async ()=>{
     expect(textElement).toBeInTheDocument();
 });
 
-test("App renders secondary header as header", async ()=>{
-    const htitle = "Specify the time frame for investigation";
+test("App renders two headers", async ()=>{
     render(<App/>);
-    const textElement =screen.getByRole("heading", {name:htitle});
-    expect(textElement).toBeInTheDocument();
+    const textElements =screen.getAllByRole("heading");
+    expect(textElements.length).toBe(2);
 });
 
 test("rendering the submit button", async ()=>{

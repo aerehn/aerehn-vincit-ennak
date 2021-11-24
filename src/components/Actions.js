@@ -12,7 +12,7 @@ const Actions = (props) =>{
                 <h2 className={StyleCSS.header}>Recommended actions</h2>
                 <table className={StyleCSS.table}>
                     <tbody>
-                    <Action stat = "date" name = "Info" volume="Volume" />
+                    <Action  name = "Info" stat = "Date" volume="Volume" />
                     <Action volume = {props.state.longestdt} name = "Longest downward trend"/>
                     <Action stat = {props.state.highestv_date} name = "Highest trading volume" volume={props.state.highestv}/>
                     <Action stat = {props.state.buydate} name = "Best day to buy" volume={props.state.lowest_price}/>

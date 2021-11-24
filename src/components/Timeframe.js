@@ -21,13 +21,13 @@ const Timeframe = ({onAdd}) => {
         <form className={StyleCSS.form} onSubmit={onSubmit}>
             <div className={StyleCSS.row}>
                 <label className={StyleCSS.label}>Start-date</label>
-                <input type='text' placeholder='Type date' className={StyleCSS.input}
+                <input type='text' placeholder='yyyy-mm-dd' className={StyleCSS.input}
                 value = {startday}
                 onChange = {(e)=>setStartday(e.target.value)}/>
             </div>
             <div className={StyleCSS.row}>
                 <label className={StyleCSS.label}>End-date</label>
-                <input type='text' placeholder='Type date' className={StyleCSS.input}
+                <input type='text' placeholder='yyyy-mm-dd' className={StyleCSS.input}
                 value = {endday}
                 onChange = {(e)=>setEndday(e.target.value)}/>
             </div>
