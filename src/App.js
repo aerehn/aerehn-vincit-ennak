@@ -21,7 +21,7 @@ class App extends React.Component {
         super(props)
         //this.klikPos = this.klikPos.bind(this)
         this.state = {
-          title: 'Bitcoin examinerr',
+          title: 'Bitcoin examiner',
           buydate: 0, //marks the best day to buy coin in the given timeframe
           lowest_price:0,  
           selldate: 0, //marks the best day to sell coin in the given timeframe
