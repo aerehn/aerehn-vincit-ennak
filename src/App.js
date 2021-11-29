@@ -1,12 +1,12 @@
 import Header from './components/Header'
-import Button from './components/Button'
+
 import Actions from './components/Actions'
 import Timeframe from './components/Timeframe'
 import buyDate from './functions/buydate'
 import sellDate from './functions/selldate'
-import longestDownwardTrend from './functions/calculators'
-import highestTradingVolume from './functions/tradingvolume'
-import getData from './functions/getData'
+import longestDownwardTrend from './functions/longestDownwardTrend'
+import highestTradingVolume from './functions/highestTradingVolume'
+
 import convertTimeFrame from './functions/convertTimeFrame'
 import filterdates from './functions/filterdates'
 import React from 'react';
@@ -79,34 +79,39 @@ class App extends React.Component {
     
 
     fetch = (timeframe) => {
+      
       let convertedtimeframe=convertTimeFrame(timeframe);
-      let start=convertedtimeframe.unix_converted_start_date.toString();
-      let end=convertedtimeframe.unix_converted_end_date.toString();
-      let url='https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=eur&from='+start+'&to='+end;
-      Axios.get(url)
-      .then((response)=>{
-          console.log(response);
-          this.setState({
-            data: response.data
-          });
-          var ldt=longestDownwardTrend(filterdates(this.state.data.prices));
-          var buy=buyDate(filterdates(this.state.data.prices),ldt);
-          var sell=sellDate(filterdates(this.state.data.prices),ldt);
+      if(convertedtimeframe){
+        let start=convertedtimeframe.unix_converted_start_date.toString();
+        let end=convertedtimeframe.unix_converted_end_date.toString();
+        let url='https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=eur&from='+start+'&to='+end;
+        Axios.get(url)
+        .then((response)=>{
+            console.log(response);
+            this.setState({
+              data: response.data
+            });
+            var ldt=longestDownwardTrend(filterdates(this.state.data.prices));
+            var buy=buyDate(filterdates(this.state.data.prices),ldt);
+            var sell=sellDate(filterdates(this.state.data.prices),ldt);
 
-          var htv=highestTradingVolume(filterdates(this.state.data.total_volumes));
-          
-          //let filtered_data=filterdates(this.state.data.total_volumes);
-          this.setState({
-            buydate: buy.return_date, 
-            lowest_price: buy.lowest_price, 
-            selldate: sell.return_date, 
-            highest_price: sell.highest_price,
-            longestdt: ldt,  
-            highestv_date: htv.return_date,
-            highestv: htv.highest,
-          })
-        }
-      );
+            var htv=highestTradingVolume(filterdates(this.state.data.total_volumes));
+            
+            //let filtered_data=filterdates(this.state.data.total_volumes);
+            this.setState({
+              buydate: buy.return_date, 
+              lowest_price: buy.lowest_price, 
+              selldate: sell.return_date, 
+              highest_price: sell.highest_price,
+              longestdt: ldt,  
+              highestv_date: htv.return_date,
+              highestv: htv.highest,
+            })
+          }
+        );
+      }else{
+        alert("There is something wrong with the dates!");
+      }
     }
 
 

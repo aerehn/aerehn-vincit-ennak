@@ -4,7 +4,7 @@ const sellDate=(data,ldt)=>{ //data is the daily price data and ldt=longest down
     var return_date="";
     if(ldt===data.length-1){ // this in case the price keeps dropping throughout the timeframe
         return_date="Don't sell!";
-        highest_price="null";
+        highest_price="";
         return {return_date,highest_price};
     }else{
         

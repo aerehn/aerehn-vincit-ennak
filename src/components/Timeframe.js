@@ -11,11 +11,13 @@ const Timeframe = ({onAdd}) => {
         }
         if(!endday){
             alert('Please add an end date!')
-        }
-        onAdd({startday,endday})
+        }else{
+            onAdd({startday,endday})
 
-        setStartday('')
-        setEndday('')
+            setStartday('')
+            setEndday('')
+        }
+        
     }
     return (
         <form className={StyleCSS.form} onSubmit={onSubmit}>
