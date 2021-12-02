@@ -85,9 +85,10 @@ class App extends React.Component {
         let start=convertedtimeframe.unix_converted_start_date.toString();
         let end=convertedtimeframe.unix_converted_end_date.toString();
         let url='https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=eur&from='+start+'&to='+end;
+        //console.log(url);
         Axios.get(url)
         .then((response)=>{
-            console.log(response);
+            //console.log(response);
             this.setState({
               data: response.data
             });
@@ -114,18 +115,6 @@ class App extends React.Component {
       }
     }
 
-
-
-
-    addTimeframe = (timeframe) =>{
-      console.log(timeframe);
-      let convertedtimeframe=convertTimeFrame(timeframe);
-      console.log(convertedtimeframe)
-      let start=convertedtimeframe.unix_converted_start_date.toString();
-      let end=convertedtimeframe.unix_converted_end_date.toString();
-      let url='https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=eur&from='+start+'&to='+end;
-      console.log(url)
-    }
       
   
     render(){
