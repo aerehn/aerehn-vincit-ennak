@@ -11,7 +11,7 @@ import convertTimeFrame from './functions/convertTimeFrame'
 import filterdates from './functions/filterdates'
 import React from 'react';
 import Axios from 'axios';
-import StyleCSS from './components/Index.module.css'
+import StyleCSS from './components/App.module.css'
 
 
 
