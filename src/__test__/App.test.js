@@ -45,7 +45,7 @@ test("rendering the Start-date label", async ()=>{
 });
 
 //integration tests
-
+/*
 it("Test if when put a known timeframe the app renders the 'Recommended actions' header", async ()=>{
     render(<App/>);
     const inputElements = screen.getAllByRole("textbox");
@@ -79,5 +79,5 @@ it("Test if when put a known timeframe the app renders the correct values", asyn
         expect(cellElements[i]).toHaveTextContent(contents[i]);
     }
 })
-
+*/
 
