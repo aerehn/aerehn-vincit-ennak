@@ -2,8 +2,8 @@ import Header from './components/Header'
 
 import Actions from './components/Actions'
 import Timeframe from './components/Timeframe'
-import buyDate from './functions/buydate'
-import sellDate from './functions/selldate'
+import buyDate from './functions/buyDate'
+import sellDate from './functions/sellDate'
 import longestDownwardTrend from './functions/longestDownwardTrend'
 import highestTradingVolume from './functions/highestTradingVolume'
 
