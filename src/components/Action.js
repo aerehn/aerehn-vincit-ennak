@@ -1,4 +1,5 @@
 import StyleCSS from "./Action.module.css"
+//A component that shows 3 values as a tablerow. Must be used inside a table
 const Action = (props) =>{
         return(
             <tr className={StyleCSS.row}>

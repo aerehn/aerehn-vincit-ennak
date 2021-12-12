@@ -2,7 +2,7 @@ import Action from './Action'
 import StyleCSS from "./Actions.module.css"
 
 
-
+// A component that acts as a info field. Presents the info as a table. Includes a title
 const Actions = (props) =>{
     if(props.state.highestv===0){ // assumes the trading volume is never zero and that when the state is zero we have not issued a query
         return(<table></table>)

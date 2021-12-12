@@ -1,3 +1,4 @@
+// amethod that searches for the day with the highest trading volume
 const highestTradingVolume=(data)=>{
     
     var date = 0

@@ -7,7 +7,7 @@ const buyDate=(data,ldt)=>{ //data is the daily price data and ldt=longest downw
         lowest_price="";
         return {return_date,lowest_price};
     }else{
-        
+        //We search for the day with min price
         for (let day of data){
             if (day[1]<lowest_price){
                 lowest_price = day[1]
@@ -19,7 +19,7 @@ const buyDate=(data,ldt)=>{ //data is the daily price data and ldt=longest downw
         
         return_date = new Date(lowest_date).toGMTString()
         
-
+        //returns an object with two attributes
         return {return_date,lowest_price};
     }
 }

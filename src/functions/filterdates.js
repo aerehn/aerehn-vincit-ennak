@@ -4,13 +4,11 @@ function filterdates(data){
     let filtered_data = [];
     for(let i = 0;i<data.length;i++){
         const day = new Date(data[i][0]).getUTCDate();
-        //console.log(day);
         if(day!==previous_day){
             filtered_data.push(data[i]);
             previous_day=day;
         }
     }
-    //console.log(filtered_data);
     return filtered_data
 }
 

@@ -1,4 +1,4 @@
-
+//A mock http request used in testing
 const mockResponse = {
     data:{
         prices:[

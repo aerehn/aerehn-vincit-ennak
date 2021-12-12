@@ -1,12 +1,11 @@
+//imports
 import Header from './components/Header'
-
 import Actions from './components/Actions'
 import Timeframe from './components/Timeframe'
 import buyDate from './functions/buyDate'
 import sellDate from './functions/sellDate'
 import longestDownwardTrend from './functions/longestDownwardTrend'
 import highestTradingVolume from './functions/highestTradingVolume'
-
 import convertTimeFrame from './functions/convertTimeFrame'
 import filterdates from './functions/filterdates'
 import React from 'react';
@@ -15,7 +14,7 @@ import StyleCSS from './components/App.module.css'
 
 
 
-
+//app
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -29,7 +28,7 @@ class App extends React.Component {
           longestdt: 0,  // marks the longest downward trend in days
           highestv_date: 0,  // marks the day of the highest trading volume
           highestv:0,
-          data: {
+          data: {//some placeholder data that was used in development. Doesn't affect the apps functionality.
             "prices": [
             [
               1392595200000,
@@ -77,28 +76,30 @@ class App extends React.Component {
     //  return data
     //}
     
-
+    //a method that sends a http request using axios to coingecko
     fetch = (timeframe) => {
       
       let convertedtimeframe=convertTimeFrame(timeframe);
+      //if the timeframe is of corect form we send a http request to coingecko. Currency=EUR and coin=Bitcoin
       if(convertedtimeframe){
         let start=convertedtimeframe.unix_converted_start_date.toString();
         let end=convertedtimeframe.unix_converted_end_date.toString();
         let url='https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=eur&from='+start+'&to='+end;
         //console.log(url);
+        //send the request
         Axios.get(url)
         .then((response)=>{
-            //console.log(response);
+            //we set the app state data to point to the fetched data
             this.setState({
               data: response.data
             });
+            //calculate the wanted info based on the fetched data
             var ldt=longestDownwardTrend(filterdates(this.state.data.prices));
             var buy=buyDate(filterdates(this.state.data.prices),ldt);
             var sell=sellDate(filterdates(this.state.data.prices),ldt);
-
             var htv=highestTradingVolume(filterdates(this.state.data.total_volumes));
             
-            //let filtered_data=filterdates(this.state.data.total_volumes);
+            //setting the state
             this.setState({
               buydate: buy.return_date, 
               lowest_price: buy.lowest_price, 
@@ -110,13 +111,13 @@ class App extends React.Component {
             })
           }
         );
-      }else{
+      }else{//if there was something wrong with the user submitted timeframe we alert
         alert("There is something wrong with the dates!");
       }
     }
 
       
-  
+    //app
     render(){
         return(
             <div className={StyleCSS.back}>

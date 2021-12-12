@@ -1,8 +1,9 @@
+
 const sellDate=(data,ldt)=>{ //data is the daily price data and ldt=longest downward trend
     var highest_price = data[0][1];
     var highest_date = data[0][0];
     var return_date="";
-    if(ldt===data.length-1){ // this in case the price keeps dropping throughout the timeframe
+    if(ldt===data.length-1){ // this in case the price keeps dropping throughout the timeframe. Then we don't sell
         return_date="Don't sell!";
         highest_price="";
         return {return_date,highest_price};
@@ -19,7 +20,7 @@ const sellDate=(data,ldt)=>{ //data is the daily price data and ldt=longest down
         //console.log(highest_date);
         return_date = new Date(highest_date).toGMTString();
         
-
+        //object that contains the selling date and the highest price
         return {return_date,highest_price};
     }
 }
