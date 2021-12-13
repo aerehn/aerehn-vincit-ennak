@@ -1,5 +1,5 @@
 # Project
-This project was done as a preassignment for Vincit's rising star trainee programme. The app runs as a single page application on heroku's servers at url:https://aerehn-scrooge-bitcoin.herokuapp.com
+This project was done as a preassignment for Vincit's rising star trainee programme application. The app runs as a single page application on heroku's servers at url:https://aerehn-scrooge-bitcoin.herokuapp.com
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
